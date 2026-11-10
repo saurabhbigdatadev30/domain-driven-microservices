@@ -16,6 +16,10 @@ import java.util.UUID;
 @RequestMapping(value = "/orders", produces = "application/vnd.api.v1+json")
 public class OrderController {
 
+    /**
+        Delegates to the Input Port (OrderApplicationService) to handle the business logic of creating
+        and tracking orders.
+     */
     private final OrderApplicationService orderApplicationService;
 
     public OrderController(OrderApplicationService orderApplicationService) {

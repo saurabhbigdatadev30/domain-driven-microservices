@@ -16,6 +16,10 @@
     </properties>
 
     <dependencies>
+            <!--
+             The order-application module invokes the input port defined in
+             the module order-application-service
+             -->
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-application-service</artifactId>

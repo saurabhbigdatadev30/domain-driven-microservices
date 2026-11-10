@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- This is the parent pom.xml file for the food-ordering-system project.
+         It defines the services as modules .
+         Each service is a separate module and can be built and run independently.
+         Each service module has submodules for domain, application, dataaccess, messaging and container.
+
+         -->
     <modules>
         <module>order-service</module>
         <module>common</module>
@@ -23,6 +29,10 @@
     <groupId>com.food.ordering.system</groupId>
     <artifactId>food-ordering-system</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!-- Default is jar, we make packaging as pom , since this is a multi-module maven project,
+         there is no need to create a jar file for this module , since there is no src . The
+         pom packaging creates a container for the submodules and does not create a jar file for this module.
+    -->
     <packaging>pom</packaging>
 
     <properties>
@@ -33,6 +43,7 @@
         <avro.version>1.11.0</avro.version>
     </properties>
 
+    <!-- Dependency management for the entire project -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -45,16 +56,20 @@
                 <artifactId>outbox</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-domain-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-application-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+
+            <!-- Submodules of the order-service module -->
+                    <dependency>
+                        <groupId>com.food.ordering.system</groupId>
+                        <artifactId>order-domain-core</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.food.ordering.system</groupId>
+                        <artifactId>order-application-service</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+
+            <!-- Rest Module -->
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-application</artifactId>
@@ -193,6 +208,7 @@
         </dependency>
     </dependencies>
 
+    <!-- The maven-compiler-plugin is used to compile the Java source code of the project. -->
     <build>
         <plugins>
             <plugin>

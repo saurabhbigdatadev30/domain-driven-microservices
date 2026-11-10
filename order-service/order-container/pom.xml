@@ -16,6 +16,15 @@
     </properties>
 
     <dependencies>
+        <!--
+           The order-container module is the entry point of the order-service microservice.
+           It contains the main class which starts the Spring Boot application.
+
+            It depends on the (order-domain-core, order-application-service),
+            order-application, order-dataaccess, order-messaging and common-dataaccess modules.
+            It also depends on the spring-boot-starter and spring-boot-starter-test dependencies
+
+        -->
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-domain-core</artifactId>

@@ -15,6 +15,14 @@
 
     </properties>
 
+    <!--
+       The module order-dataaccess contains DB Secondary Adapter , which implements Output port defined in
+       order-application-service module.
+
+        So, the order-dataaccess module depends on order-application-service module.
+        The order-dataaccess module also depends on common-dataaccess module which contains common DB related code.
+
+    -->
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>

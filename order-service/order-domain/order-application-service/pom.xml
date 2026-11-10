@@ -23,6 +23,9 @@
             <groupId>com.food.ordering.system</groupId>
             <artifactId>outbox</artifactId>
         </dependency>
+
+        <!-- The order-application-service invokes the core logic of the order-domain-core ,
+            so is added as dependency -->
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-domain-core</artifactId>

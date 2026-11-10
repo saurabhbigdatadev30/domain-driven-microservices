@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>order-service</artifactId>
+
+    <!--
+          <packaging>jar</packaging>
+           Default is jar, we make packaging as pom , since this is a multi-module maven project,
+           there is no need to create a jar file for this module , since there is no src . The
+           pom packaging creates a container for the submodules and does not create a jar file for this module.
+     -->
+
     <packaging>pom</packaging>
     <modules>
         <module>order-domain</module>
